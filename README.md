@@ -11,9 +11,7 @@
 
 </div>
 
-<br/>
-
-https://github.com/shreesh9/cooked2git/raw/main/tutorial/cooked2git.mp4
+https://github.com/user-attachments/assets/2992d6de-0f67-48cd-9f45-11d54e737e95
 
 ---
 
