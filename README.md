@@ -15,8 +15,6 @@
 
 https://github.com/shreesh9/cooked2git/raw/main/tutorial/cooked2git.mp4
 
-<video src="https://github.com/shreesh9/cooked2git/raw/main/tutorial/cooked2git.mp4" width="100%" controls></video>
-
 ---
 
 ## ⚡ Overview
