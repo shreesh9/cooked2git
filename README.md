@@ -9,6 +9,10 @@
 ![Privacy](https://img.shields.io/badge/privacy-100%25%20Zero--Trust-FFB800?style=for-the-badge&logo=shield&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
 
+<br/>
+
+<video src="https://github.com/shreesh9/cooked2git/raw/main/tutorial/cooked2git.mp4" controls="controls" style="max-width: 100%; border-radius: 8px;"></video>
+
 </div>
 
 ---
