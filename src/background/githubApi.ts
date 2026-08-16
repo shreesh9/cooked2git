@@ -79,7 +79,7 @@ export class GitHubApiClient {
 
 ## 📊 Overview
 
-Welcome to my personal LeetCode & NeetCode solutions repository! Every time I solve a problem on LeetCode or NeetCode, my solutions are automatically pushed here with difficulty categories, runtime performance, and memory percentiles.
+Welcome to my personal LeetCode solutions repository! Every time I solve a problem on LeetCode, my solutions are automatically pushed here with difficulty categories, runtime performance, and memory percentiles.
 
 | Difficulty | Badge | Folder Path |
 | :--- | :--- | :--- |
