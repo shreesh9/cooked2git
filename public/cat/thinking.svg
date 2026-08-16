@@ -1,0 +1,97 @@
+<!-- Cooked Cat — Thinking Pose (2-frame ear twitch loop)
+     Used while a push is in-flight. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="64" height="32" shape-rendering="crispEdges">
+  <style>
+    .f { fill: #09090B; }
+    .e { fill: #FF0B3A; }
+    .g { fill: #8A8A93; }
+    .y { fill: #FFB700; }
+  </style>
+
+  <!-- Frame 1: Left ear up, right ear flat -->
+  <g id="think-1">
+    <!-- Left ear UP -->
+    <rect x="3" y="1" width="1" height="1" class="f"/>
+    <rect x="4" y="1" width="1" height="1" class="f"/>
+    <rect x="3" y="2" width="1" height="1" class="f"/>
+    <!-- Right ear FLAT -->
+    <rect x="7" y="2" width="1" height="1" class="f"/>
+    <rect x="8" y="2" width="1" height="1" class="f"/>
+    
+    <!-- Head -->
+    <rect x="4" y="2" width="4" height="1" class="f"/>
+    <rect x="3" y="3" width="6" height="1" class="f"/>
+    
+    <!-- Eyes (wide, alert) -->
+    <rect x="4" y="3" width="1" height="1" class="e"/>
+    <rect x="7" y="3" width="1" height="1" class="e"/>
+    
+    <!-- Nose -->
+    <rect x="5" y="4" width="2" height="1" class="g"/>
+    
+    <!-- Body -->
+    <rect x="3" y="5" width="6" height="1" class="f"/>
+    <rect x="2" y="6" width="8" height="1" class="f"/>
+    <rect x="2" y="7" width="8" height="1" class="f"/>
+    <rect x="2" y="8" width="8" height="1" class="f"/>
+    <rect x="3" y="9" width="6" height="1" class="f"/>
+    
+    <!-- Legs -->
+    <rect x="3" y="10" width="2" height="1" class="f"/>
+    <rect x="7" y="10" width="2" height="1" class="f"/>
+    <rect x="3" y="11" width="2" height="1" class="f"/>
+    <rect x="7" y="11" width="2" height="1" class="f"/>
+    
+    <!-- Thinking dots -->
+    <rect x="11" y="3" width="1" height="1" class="y"/>
+    <rect x="12" y="2" width="1" height="1" class="y"/>
+    <rect x="13" y="1" width="1" height="1" class="y"/>
+    
+    <!-- Tail still -->
+    <rect x="10" y="8" width="1" height="1" class="f"/>
+    <rect x="11" y="7" width="1" height="1" class="f"/>
+  </g>
+
+  <!-- Frame 2: Left ear flat, right ear up -->
+  <g id="think-2" transform="translate(16, 0)">
+    <!-- Left ear FLAT -->
+    <rect x="3" y="2" width="1" height="1" class="f"/>
+    <rect x="4" y="2" width="1" height="1" class="f"/>
+    <!-- Right ear UP -->
+    <rect x="7" y="1" width="1" height="1" class="f"/>
+    <rect x="8" y="1" width="1" height="1" class="f"/>
+    <rect x="8" y="2" width="1" height="1" class="f"/>
+    
+    <!-- Head -->
+    <rect x="4" y="2" width="4" height="1" class="f"/>
+    <rect x="3" y="3" width="6" height="1" class="f"/>
+    
+    <!-- Eyes -->
+    <rect x="4" y="3" width="1" height="1" class="e"/>
+    <rect x="7" y="3" width="1" height="1" class="e"/>
+    
+    <!-- Nose -->
+    <rect x="5" y="4" width="2" height="1" class="g"/>
+    
+    <!-- Body -->
+    <rect x="3" y="5" width="6" height="1" class="f"/>
+    <rect x="2" y="6" width="8" height="1" class="f"/>
+    <rect x="2" y="7" width="8" height="1" class="f"/>
+    <rect x="2" y="8" width="8" height="1" class="f"/>
+    <rect x="3" y="9" width="6" height="1" class="f"/>
+    
+    <!-- Legs -->
+    <rect x="3" y="10" width="2" height="1" class="f"/>
+    <rect x="7" y="10" width="2" height="1" class="f"/>
+    <rect x="3" y="11" width="2" height="1" class="f"/>
+    <rect x="7" y="11" width="2" height="1" class="f"/>
+    
+    <!-- Thinking dots shifted -->
+    <rect x="11" y="2" width="1" height="1" class="y"/>
+    <rect x="12" y="1" width="1" height="1" class="y"/>
+    
+    <!-- Tail still -->
+    <rect x="10" y="8" width="1" height="1" class="f"/>
+    <rect x="11" y="7" width="1" height="1" class="f"/>
+  </g>
+</svg>

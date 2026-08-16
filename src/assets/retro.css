@@ -1,0 +1,493 @@
+/* ============================================================
+   COOKED2GIT — "Terminal Cat" Design System
+   Nothing-OS dot-matrix × CRT scanline × pixel cat
+   ============================================================ */
+
+/* --- Fonts (self-hosted Press Start 2P, fallback to system monospaces) --- */
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('/fonts/PressStart2P-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Design Tokens --- */
+:root {
+  /* Palette */
+  --void: #09090B;
+  --panel: #121215;
+  --panel-raised: #1A1A1F;
+  --panel-border: #222228;
+  --crimson: #FF0B3A;
+  --neon-red: #FF2A55;
+  --neon-red-dim: rgba(255, 42, 85, 0.15);
+  --ash: #8A8A93;
+  --ash-dim: #5A5A63;
+  --paper: #F2F2F0;
+  --ok-green: #39FF88;
+  --ok-green-dim: rgba(57, 255, 136, 0.15);
+  --error-red: #FF3355;
+
+  /* Typography */
+  --font-display: 'Silkscreen', 'Courier New', monospace;
+  --font-body: 'JetBrains Mono', 'Consolas', monospace;
+  --font-micro: 'Press Start 2P', 'Courier New', monospace;
+
+  /* Sizing */
+  --text-xs: 0.625rem;    /* 10px — micro labels only */
+  --text-sm: 0.75rem;     /* 12px */
+  --text-base: 0.8125rem; /* 13px — popup body */
+  --text-md: 0.875rem;    /* 14px */
+  --text-lg: 1rem;        /* 16px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --ease-snappy: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 300ms;
+
+  /* Glow */
+  --glow-crimson: 0 0 6px var(--crimson), 0 0 20px rgba(255, 11, 58, 0.3);
+  --glow-crimson-soft: 0 0 4px rgba(255, 11, 58, 0.4);
+  --glow-green: 0 0 6px var(--ok-green), 0 0 20px rgba(57, 255, 136, 0.3);
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--paper);
+  background-color: var(--void);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* --- CRT Scanline Overlay --- */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+/* Subtle screen flicker — very low opacity, not distracting */
+.crt-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  pointer-events: none;
+}
+
+/* --- Dot Grid Background (Nothing-OS feel) --- */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    var(--panel-border) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+}
+
+/* --- Typography Utilities --- */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-micro {
+  font-family: var(--font-micro);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --- Neon Glow Utilities --- */
+.glow-crimson {
+  filter: drop-shadow(var(--glow-crimson-soft));
+  transition: filter var(--duration-base) var(--ease-snappy);
+}
+
+.glow-crimson:hover,
+.glow-crimson:focus-visible {
+  filter: drop-shadow(var(--glow-crimson));
+}
+
+.glow-green {
+  filter: drop-shadow(var(--glow-green));
+}
+
+.text-glow-crimson {
+  text-shadow: 0 0 8px rgba(255, 11, 58, 0.6);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 8px rgba(57, 255, 136, 0.6);
+}
+
+/* --- Card / Panel Component --- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.panel-raised {
+  background: var(--panel-raised);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+/* --- Button Components --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-snappy);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--crimson);
+  color: var(--paper);
+  border-color: var(--crimson);
+}
+
+.btn-primary:hover {
+  background: var(--neon-red);
+  border-color: var(--neon-red);
+  box-shadow: var(--glow-crimson);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ash);
+  border-color: var(--panel-border);
+}
+
+.btn-ghost:hover {
+  color: var(--paper);
+  border-color: var(--ash);
+  background: var(--panel-raised);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--error-red);
+  border-color: var(--error-red);
+}
+
+.btn-danger:hover {
+  background: rgba(255, 51, 85, 0.1);
+  box-shadow: 0 0 8px rgba(255, 51, 85, 0.3);
+}
+
+/* --- Input / Field --- */
+.input {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--paper);
+  background: var(--void);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  transition: border-color var(--duration-base) var(--ease-snappy),
+              box-shadow var(--duration-base) var(--ease-snappy);
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--ash-dim);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--crimson);
+  box-shadow: 0 0 0 2px var(--neon-red-dim);
+}
+
+/* --- Toggle Switch --- */
+.toggle {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--panel-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background var(--duration-base) var(--ease-snappy);
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ash);
+  transition: transform var(--duration-base) var(--ease-snappy),
+              background var(--duration-base) var(--ease-snappy);
+}
+
+.toggle:checked {
+  background: var(--crimson);
+}
+
+.toggle:checked::after {
+  transform: translateX(16px);
+  background: var(--paper);
+}
+
+/* --- Badge / Tag --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-micro);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 2px;
+  line-height: 1.4;
+}
+
+.badge-easy {
+  background: var(--ok-green-dim);
+  color: var(--ok-green);
+}
+
+.badge-medium {
+  background: rgba(255, 183, 0, 0.15);
+  color: #FFB700;
+}
+
+.badge-hard {
+  background: var(--neon-red-dim);
+  color: var(--neon-red);
+}
+
+/* --- Toast Animation --- */
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.toast {
+  animation: toast-in var(--duration-base) var(--ease-snappy) forwards;
+}
+
+.toast-exit {
+  animation: toast-out var(--duration-fast) ease-in forwards;
+}
+
+/* --- Neon Pulse (for success state) --- */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--crimson);
+  }
+  50% {
+    box-shadow: var(--glow-crimson);
+  }
+}
+
+.neon-pulse {
+  animation: neon-pulse 1.2s ease-in-out infinite;
+}
+
+/* --- Pixel Art Rendering --- */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* --- Cat Container --- */
+.cat-container {
+  position: fixed;
+  bottom: var(--space-3);
+  right: var(--space-3);
+  width: 48px;
+  height: 48px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.cat-container.interactive {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.cat-container img,
+.cat-container svg {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--panel-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ash-dim);
+}
+
+/* --- Status Indicator --- */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.online {
+  background: var(--ok-green);
+  box-shadow: 0 0 4px var(--ok-green);
+}
+
+.status-dot.offline {
+  background: var(--ash-dim);
+}
+
+.status-dot.error {
+  background: var(--error-red);
+  box-shadow: 0 0 4px var(--error-red);
+}
+
+/* --- Utility Classes --- */
+.text-paper { color: var(--paper); }
+.text-ash { color: var(--ash); }
+.text-crimson { color: var(--crimson); }
+.text-green { color: var(--ok-green); }
+.text-error { color: var(--error-red); }
+
+.bg-void { background: var(--void); }
+.bg-panel { background: var(--panel); }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+
+.w-full { width: 100%; }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- Divider --- */
+.divider {
+  border: none;
+  border-top: 1px solid var(--panel-border);
+  margin: var(--space-4) 0;
+}
+
+/* --- Selection --- */
+::selection {
+  background: var(--neon-red-dim);
+  color: var(--paper);
+}

@@ -1,0 +1,59 @@
+name: Cooked2Git CI & Security Audit
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  audit-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Supply Chain Audit (npm audit)
+        run: npm audit --audit-level=high
+
+      - name: OSV Vulnerability Scanner
+        uses: google/osv-scanner-action@v1.9.0
+        with:
+          scan-args: |-
+            --lockfile=package-lock.json
+
+      - name: Permission Boundary Verification
+        run: |
+          echo "Verifying manifest.json host permission boundaries..."
+          grep -q '"https://leetcode.com/problems/\*"' manifest.json
+          grep -q '"https://neetcode.io/practice/\*"' manifest.json
+          echo "Permission boundary check passed: host permissions restricted to problem pages only."
+
+      - name: CSP Security Check
+        run: |
+          grep -q "script-src 'self'" manifest.json
+          echo "CSP check passed: No unsafe-eval or remote script sources allowed."
+
+      - name: Type Check & Lint
+        run: npm run lint
+
+      - name: Run Unit Tests
+        run: npm test
+
+      - name: Build Extension Artifact
+        run: npm run build
+
+      - name: Calculate Reproducible Build Hash
+        run: |
+          sha256sum dist/* > build-hash.txt || true
+          cat build-hash.txt

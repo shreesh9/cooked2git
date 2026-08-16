@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooked2Git</title>
+  <link rel="stylesheet" href="../assets/retro.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="dot-grid">
+  <!-- CRT Scanline Effect -->
+  <div class="crt-overlay"></div>
+
+  <!-- Main Container -->
+  <div class="popup-container">
+    <!-- Header HUD -->
+    <header class="hud-header">
+      <div class="brand">
+        <h1 class="font-display brand-title">COOKED<span class="text-crimson">2</span>GIT</h1>
+        <span class="version font-micro text-ash">v0.1.0</span>
+      </div>
+      <div class="status-indicator" title="Service Status">
+        <span id="statusDot" class="status-dot offline"></span>
+        <span id="statusText" class="font-micro text-ash">DISCONNECTED</span>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="popup-main">
+      <!-- Auth & Sync Card -->
+      <section id="authSection" class="panel">
+        <div class="flex flex-col gap-2">
+          <!-- Disconnected state setup panel -->
+          <div id="disconnectedPanel" class="flex flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <span class="font-display text-xs text-paper">STEP 1. CONNECT GITHUB</span>
+              <button id="getTokenLinkBtn" class="btn btn-ghost font-micro" style="font-size: 8px; padding: 2px 6px;">🔗 1-CLICK TOKEN LINK</button>
+            </div>
+            
+            <div class="flex gap-2">
+              <input type="password" id="tokenInput" class="input text-xs" placeholder="Paste GitHub Token here..." style="padding: 4px 8px; flex: 1;" />
+              <button id="connectBtn" class="btn btn-primary font-micro glow-crimson" style="padding: 4px 10px;">CONNECT</button>
+            </div>
+            <span class="text-xs text-ash" style="font-size: 9px;">Click the 1-Click link to open GitHub with permissions pre-selected.</span>
+          </div>
+
+          <!-- Connected Repo Select Panel -->
+          <div id="connectedPanel" class="hidden flex-col gap-2">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-micro text-xs text-green">CONNECTED AS</span>
+                <div id="userLoginDisplay" class="font-display text-xs text-paper">@octocat</div>
+              </div>
+              <button id="unlinkBtn" class="btn btn-danger font-micro" style="font-size: 8px; padding: 2px 6px;">UNLINK</button>
+            </div>
+
+            <div class="flex flex-col gap-1 margin-top-1">
+              <label class="font-micro text-xs text-ash">SELECT REPOSITORY</label>
+              <div class="flex gap-2">
+                <select id="repoSelect" class="input text-xs" style="padding: 4px 8px; flex: 1;">
+                  <option value="">Loading repos...</option>
+                </select>
+                <button id="createRepoBtn" class="btn btn-ghost font-micro" title="Auto-create leetcode-solutions repo" style="font-size: 8px; padding: 4px 6px;">+ NEW REPO</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Summary Card -->
+      <section class="stats-grid">
+        <div class="stat-box panel">
+          <div class="font-micro text-ash">PUSHED</div>
+          <div id="statPushed" class="font-display text-lg text-paper">0</div>
+        </div>
+        <div class="stat-box panel">
+          <div class="font-micro text-ash">STREAK</div>
+          <div id="statStreak" class="font-display text-lg text-green">0 🔥</div>
+        </div>
+        <div class="stat-box panel">
+          <div class="font-micro text-ash">QUEUE</div>
+          <div id="statQueue" class="font-display text-lg text-ash">0</div>
+        </div>
+      </section>
+
+      <!-- Recent Pushes Feed -->
+      <section class="panel recent-pushes">
+        <div class="flex items-center justify-between margin-bottom-2">
+          <span class="font-display text-xs text-ash">RECENT COMMITS</span>
+          <span id="syncActivity" class="font-micro text-xs text-ash">AUTO-SYNC ACTIVE</span>
+        </div>
+        <ul id="pushesList" class="pushes-list">
+          <li class="empty-state text-ash text-xs">Auto-interceptor ready! Solve any problem on LeetCode to push.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer Controls & Mascot -->
+    <footer class="hud-footer flex items-center justify-between">
+      <div class="footer-links flex gap-3">
+        <a href="#" id="openOptionsLink" class="font-display text-xs text-ash hover-crimson">OPTIONS</a>
+        <a href="#" id="dryRunToggle" class="font-display text-xs text-ash hover-crimson">DRY RUN: OFF</a>
+      </div>
+
+      <!-- Mascot Mount Point -->
+      <div id="catMount"></div>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.ts"></script>
+</body>
+</html>

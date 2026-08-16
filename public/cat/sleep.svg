@@ -1,0 +1,62 @@
+<!-- Cooked Cat — Sleep Pose (2-frame curled up breathing loop)
+     Shown in popup if inactive. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="64" height="32" shape-rendering="crispEdges">
+  <style>
+    .f { fill: #09090B; }
+    .e { fill: #8A8A93; }
+    .g { fill: #5A5A63; }
+    .z { fill: #8A8A93; }
+  </style>
+
+  <!-- Frame 1: Inhale / curled -->
+  <g id="sleep-1">
+    <!-- Ears flattened back -->
+    <rect x="3" y="5" width="1" height="1" class="f"/>
+    <rect x="4" y="5" width="1" height="1" class="f"/>
+
+    <!-- Curled Body -->
+    <rect x="4" y="6" width="6" height="1" class="f"/>
+    <rect x="3" y="7" width="8" height="1" class="f"/>
+    <rect x="3" y="8" width="8" height="1" class="f"/>
+    <rect x="4" y="9" width="6" height="1" class="f"/>
+
+    <!-- Closed Eyes (- line) -->
+    <rect x="4" y="7" width="1" height="1" class="e"/>
+    <rect x="6" y="7" width="1" height="1" class="e"/>
+
+    <!-- Tail wrapped around -->
+    <rect x="9" y="9" width="2" height="1" class="f"/>
+    <rect x="10" y="8" width="1" height="1" class="f"/>
+
+    <!-- Zzz Floating -->
+    <rect x="12" y="4" width="1" height="1" class="z"/>
+    <rect x="13" y="2" width="2" height="1" class="z"/>
+    <rect x="14" y="1" width="1" height="1" class="z"/>
+  </g>
+
+  <!-- Frame 2: Exhale / slight expansion -->
+  <g id="sleep-2" transform="translate(16, 0)">
+    <!-- Ears flattened back -->
+    <rect x="3" y="4" width="1" height="1" class="f"/>
+    <rect x="4" y="4" width="1" height="1" class="f"/>
+
+    <!-- Curled Body slightly higher -->
+    <rect x="4" y="5" width="6" height="1" class="f"/>
+    <rect x="3" y="6" width="8" height="1" class="f"/>
+    <rect x="3" y="7" width="8" height="1" class="f"/>
+    <rect x="3" y="8" width="8" height="1" class="f"/>
+    <rect x="4" y="9" width="6" height="1" class="f"/>
+
+    <!-- Closed Eyes -->
+    <rect x="4" y="6" width="1" height="1" class="e"/>
+    <rect x="6" y="6" width="1" height="1" class="e"/>
+
+    <!-- Tail wrapped -->
+    <rect x="9" y="9" width="2" height="1" class="f"/>
+    <rect x="10" y="8" width="1" height="1" class="f"/>
+
+    <!-- Zzz Floating higher -->
+    <rect x="13" y="3" width="1" height="1" class="z"/>
+    <rect x="14" y="1" width="2" height="1" class="z"/>
+  </g>
+</svg>

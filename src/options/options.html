@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooked2Git — Terminal Options & Privacy Ledger</title>
+  <link rel="stylesheet" href="../assets/retro.css">
+  <style>
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--space-6);
+      min-height: 100vh;
+    }
+    .options-header {
+      border-bottom: 1px solid var(--panel-border);
+      padding-bottom: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    .section-title {
+      font-size: var(--text-md);
+      margin-bottom: var(--space-3);
+      color: var(--paper);
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    .label {
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      color: var(--ash);
+    }
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--text-xs);
+      text-align: left;
+    }
+    .ledger-table th, .ledger-table td {
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid var(--panel-border);
+    }
+    .ledger-table th {
+      font-family: var(--font-display);
+      color: var(--ash);
+      background: var(--panel-raised);
+    }
+  </style>
+</head>
+<body class="dot-grid">
+  <div class="crt-overlay"></div>
+
+  <header class="options-header flex items-center justify-between">
+    <div>
+      <h1 class="font-display brand-title text-xl">COOKED<span class="text-crimson">2</span>GIT // OPTIONS</h1>
+      <p class="text-ash text-xs">Zero-Trust Configuration & Privacy Audit Ledger</p>
+    </div>
+    <button id="verifyZeroTrustBtn" class="btn btn-primary glow-crimson">VERIFY ZERO-TRUST</button>
+  </header>
+
+  <main class="flex flex-col gap-6">
+    <!-- GitHub Config Section -->
+    <section class="panel">
+      <h2 class="font-display section-title">01. GITHUB CREDENTIALS</h2>
+      <div class="field-group">
+        <label class="label" for="patInput">PERSONAL ACCESS TOKEN (PAT / FINE-GRAINED)</label>
+        <input type="password" id="patInput" class="input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx or github_pat_xxxx" />
+        <span class="text-xs text-ash">Requires repo permission (Contents: read/write). Never leaves your browser.</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="field-group">
+          <label class="label" for="repoOwnerInput">REPOSITORY OWNER / USERNAME</label>
+          <input type="text" id="repoOwnerInput" class="input" placeholder="octocat" />
+        </div>
+        <div class="field-group">
+          <label class="label" for="repoNameInput">REPOSITORY NAME</label>
+          <input type="text" id="repoNameInput" class="input" placeholder="leetcode-solutions" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field-group">
+          <label class="label" for="branchInput">TARGET BRANCH</label>
+          <input type="text" id="branchInput" class="input" value="main" />
+        </div>
+        <div class="field-group">
+          <label class="label" for="passphraseInput">ENCRYPTION PASSPHRASE (OPTIONAL)</label>
+          <input type="password" id="passphraseInput" class="input" placeholder="AES-GCM-256 (600,000+ PBKDF2 iter)" />
+        </div>
+      </div>
+
+      <button id="saveConfigBtn" class="btn btn-primary">SAVE CONFIGURATION</button>
+    </section>
+
+    <!-- Privacy Audit Ledger Section -->
+    <section class="panel">
+      <div class="flex items-center justify-between margin-bottom-2">
+        <h2 class="font-display section-title" style="margin:0;">02. PRIVACY AUDIT LEDGER</h2>
+        <span class="font-micro text-xs text-green">CLIENT-SIDE STORAGE AUDIT</span>
+      </div>
+      <p class="text-xs text-ash margin-bottom-2">Live dump of all keys stored in <code>chrome.storage.local</code>. Zero background tracking.</p>
+      
+      <table class="ledger-table">
+        <thead>
+          <tr>
+            <th>KEY</th>
+            <th>TYPE</th>
+            <th>ENCRYPTED</th>
+            <th>SIZE</th>
+          </tr>
+        </thead>
+        <tbody id="ledgerTableBody">
+          <tr>
+            <td colspan="4" class="text-ash text-center">Loading storage keys...</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Danger Zone / Nuke -->
+    <section class="panel" style="border-color: rgba(255, 51, 85, 0.3);">
+      <h2 class="font-display section-title text-error">03. DANGER ZONE</h2>
+      <p class="text-xs text-ash margin-bottom-2">Wipe all stored tokens, credentials, offline queues, and extension settings immediately.</p>
+      <button id="nukeBtn" class="btn btn-danger">NUKE ALL LOCAL DATA</button>
+    </section>
+  </main>
+
+  <script type="module" src="options.ts"></script>
+</body>
+</html>

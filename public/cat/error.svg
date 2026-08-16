@@ -1,0 +1,92 @@
+<!-- Cooked Cat — Error Pose (2-frame flat ears / knocked over)
+     Plays on failed push. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" width="64" height="32" shape-rendering="crispEdges">
+  <style>
+    .f { fill: #09090B; }
+    .e { fill: #FF3355; }
+    .g { fill: #8A8A93; }
+    .x { fill: #FF3355; }
+  </style>
+
+  <!-- Frame 1: Flat ears, startled -->
+  <g id="error-1">
+    <!-- Ears flat / back -->
+    <rect x="2" y="2" width="1" height="1" class="f"/>
+    <rect x="3" y="2" width="1" height="1" class="f"/>
+    <rect x="8" y="2" width="1" height="1" class="f"/>
+    <rect x="9" y="2" width="1" height="1" class="f"/>
+    
+    <!-- Head -->
+    <rect x="3" y="3" width="6" height="1" class="f"/>
+    <rect x="3" y="4" width="6" height="1" class="f"/>
+    
+    <!-- Eyes (X marks — error) -->
+    <rect x="4" y="3" width="1" height="1" class="x"/>
+    <rect x="7" y="3" width="1" height="1" class="x"/>
+    
+    <!-- Mouth (frown) -->
+    <rect x="5" y="5" width="2" height="1" class="g"/>
+    
+    <!-- Body -->
+    <rect x="3" y="6" width="6" height="1" class="f"/>
+    <rect x="2" y="7" width="8" height="1" class="f"/>
+    <rect x="2" y="8" width="8" height="1" class="f"/>
+    <rect x="3" y="9" width="6" height="1" class="f"/>
+    
+    <!-- Legs splayed -->
+    <rect x="2" y="10" width="2" height="1" class="f"/>
+    <rect x="8" y="10" width="2" height="1" class="f"/>
+    <rect x="2" y="11" width="2" height="1" class="f"/>
+    <rect x="8" y="11" width="2" height="1" class="f"/>
+    
+    <!-- Tail drooped -->
+    <rect x="10" y="9" width="1" height="1" class="f"/>
+    <rect x="11" y="10" width="1" height="1" class="f"/>
+    
+    <!-- Knocked object -->
+    <rect x="12" y="10" width="1" height="1" class="g"/>
+    <rect x="13" y="10" width="1" height="1" class="g"/>
+    <rect x="12" y="11" width="2" height="1" class="g"/>
+  </g>
+
+  <!-- Frame 2: Ears flat, looking away -->
+  <g id="error-2" transform="translate(16, 0)">
+    <!-- Ears still flat -->
+    <rect x="2" y="2" width="1" height="1" class="f"/>
+    <rect x="3" y="2" width="1" height="1" class="f"/>
+    <rect x="8" y="2" width="1" height="1" class="f"/>
+    <rect x="9" y="2" width="1" height="1" class="f"/>
+    
+    <!-- Head -->
+    <rect x="3" y="3" width="6" height="1" class="f"/>
+    <rect x="3" y="4" width="6" height="1" class="f"/>
+    
+    <!-- Eyes (looking away) -->
+    <rect x="4" y="3" width="1" height="1" class="e"/>
+    <rect x="6" y="3" width="1" height="1" class="e"/>
+    
+    <!-- Mouth -->
+    <rect x="5" y="5" width="2" height="1" class="g"/>
+    
+    <!-- Body hunched -->
+    <rect x="3" y="6" width="6" height="1" class="f"/>
+    <rect x="2" y="7" width="8" height="1" class="f"/>
+    <rect x="3" y="8" width="7" height="1" class="f"/>
+    <rect x="3" y="9" width="6" height="1" class="f"/>
+    
+    <!-- Legs -->
+    <rect x="3" y="10" width="2" height="1" class="f"/>
+    <rect x="7" y="10" width="2" height="1" class="f"/>
+    <rect x="3" y="11" width="2" height="1" class="f"/>
+    <rect x="7" y="11" width="2" height="1" class="f"/>
+    
+    <!-- Tail drooped more -->
+    <rect x="10" y="9" width="1" height="1" class="f"/>
+    <rect x="11" y="10" width="1" height="1" class="f"/>
+    <rect x="12" y="11" width="1" height="1" class="f"/>
+    
+    <!-- Knocked object rolled -->
+    <rect x="13" y="11" width="1" height="1" class="g"/>
+    <rect x="14" y="11" width="1" height="1" class="g"/>
+  </g>
+</svg>

@@ -1,0 +1,143 @@
+<!-- Cooked Cat — Cooked Pose (3-frame fire over head + red glow)
+     Plays ~1.2s on successful push. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 16" width="96" height="32" shape-rendering="crispEdges">
+  <style>
+    .f { fill: #09090B; }
+    .e { fill: #FF0B3A; }
+    .g { fill: #8A8A93; }
+    .r1 { fill: #FF0B3A; }
+    .r2 { fill: #FF2A55; }
+    .o { fill: #FF8800; }
+    .y { fill: #FFD700; }
+    .gr { fill: #39FF88; }
+  </style>
+
+  <!-- Frame 1: Small fire -->
+  <g id="cooked-1">
+    <!-- Fire small -->
+    <rect x="5" y="0" width="2" height="1" class="o"/>
+    <rect x="5" y="1" width="1" height="1" class="r1"/>
+    <rect x="6" y="1" width="1" height="1" class="y"/>
+    
+    <!-- Ears (perky, excited) -->
+    <rect x="3" y="1" width="1" height="1" class="f"/>
+    <rect x="4" y="1" width="1" height="1" class="f"/>
+    <rect x="7" y="1" width="1" height="1" class="f"/>
+    <rect x="8" y="1" width="1" height="1" class="f"/>
+    
+    <!-- Head -->
+    <rect x="3" y="2" width="6" height="1" class="f"/>
+    <rect x="3" y="3" width="6" height="1" class="f"/>
+    
+    <!-- Eyes (happy, squinted — using green for success) -->
+    <rect x="4" y="3" width="1" height="1" class="gr"/>
+    <rect x="7" y="3" width="1" height="1" class="gr"/>
+    
+    <!-- Mouth (happy arc) -->
+    <rect x="5" y="4" width="2" height="1" class="g"/>
+    
+    <!-- Body -->
+    <rect x="3" y="5" width="6" height="1" class="f"/>
+    <rect x="2" y="6" width="8" height="1" class="f"/>
+    <rect x="2" y="7" width="8" height="1" class="f"/>
+    <rect x="2" y="8" width="8" height="1" class="f"/>
+    <rect x="3" y="9" width="6" height="1" class="f"/>
+    
+    <!-- Legs -->
+    <rect x="3" y="10" width="2" height="1" class="f"/>
+    <rect x="7" y="10" width="2" height="1" class="f"/>
+    <rect x="3" y="11" width="2" height="1" class="f"/>
+    <rect x="7" y="11" width="2" height="1" class="f"/>
+    
+    <!-- Tail wagging up -->
+    <rect x="10" y="6" width="1" height="1" class="f"/>
+    <rect x="11" y="5" width="1" height="1" class="f"/>
+    <rect x="12" y="4" width="1" height="1" class="f"/>
+  </g>
+
+  <!-- Frame 2: Big fire -->
+  <g id="cooked-2" transform="translate(16, 0)">
+    <!-- Fire big -->
+    <rect x="4" y="0" width="1" height="1" class="r1"/>
+    <rect x="5" y="0" width="2" height="1" class="y"/>
+    <rect x="7" y="0" width="1" height="1" class="r2"/>
+    <rect x="5" y="1" width="1" height="1" class="o"/>
+    <rect x="6" y="1" width="1" height="1" class="r1"/>
+    
+    <!-- Ears -->
+    <rect x="3" y="1" width="1" height="1" class="f"/>
+    <rect x="4" y="1" width="1" height="1" class="f"/>
+    <rect x="7" y="1" width="1" height="1" class="f"/>
+    <rect x="8" y="1" width="1" height="1" class="f"/>
+    
+    <!-- Head -->
+    <rect x="3" y="2" width="6" height="1" class="f"/>
+    <rect x="3" y="3" width="6" height="1" class="f"/>
+    
+    <!-- Eyes (happy) -->
+    <rect x="4" y="3" width="1" height="1" class="gr"/>
+    <rect x="7" y="3" width="1" height="1" class="gr"/>
+    
+    <!-- Mouth -->
+    <rect x="5" y="4" width="2" height="1" class="g"/>
+    
+    <!-- Body -->
+    <rect x="3" y="5" width="6" height="1" class="f"/>
+    <rect x="2" y="6" width="8" height="1" class="f"/>
+    <rect x="2" y="7" width="8" height="1" class="f"/>
+    <rect x="2" y="8" width="8" height="1" class="f"/>
+    <rect x="3" y="9" width="6" height="1" class="f"/>
+    
+    <!-- Legs -->
+    <rect x="3" y="10" width="2" height="1" class="f"/>
+    <rect x="7" y="10" width="2" height="1" class="f"/>
+    <rect x="3" y="11" width="2" height="1" class="f"/>
+    <rect x="7" y="11" width="2" height="1" class="f"/>
+    
+    <!-- Tail wagging down -->
+    <rect x="10" y="8" width="1" height="1" class="f"/>
+    <rect x="11" y="9" width="1" height="1" class="f"/>
+  </g>
+
+  <!-- Frame 3: Fire flicker -->
+  <g id="cooked-3" transform="translate(32, 0)">
+    <!-- Fire flicker -->
+    <rect x="5" y="0" width="1" height="1" class="y"/>
+    <rect x="6" y="0" width="1" height="1" class="o"/>
+    <rect x="4" y="1" width="1" height="1" class="r2"/>
+    <rect x="5" y="1" width="2" height="1" class="r1"/>
+    <rect x="7" y="1" width="1" height="1" class="o"/>
+    
+    <!-- Ears -->
+    <rect x="3" y="1" width="1" height="1" class="f"/>
+    <rect x="8" y="1" width="1" height="1" class="f"/>
+    
+    <!-- Head -->
+    <rect x="3" y="2" width="6" height="1" class="f"/>
+    <rect x="3" y="3" width="6" height="1" class="f"/>
+    
+    <!-- Eyes (happy) -->
+    <rect x="4" y="3" width="1" height="1" class="gr"/>
+    <rect x="7" y="3" width="1" height="1" class="gr"/>
+    
+    <!-- Mouth -->
+    <rect x="5" y="4" width="2" height="1" class="g"/>
+    
+    <!-- Body -->
+    <rect x="3" y="5" width="6" height="1" class="f"/>
+    <rect x="2" y="6" width="8" height="1" class="f"/>
+    <rect x="2" y="7" width="8" height="1" class="f"/>
+    <rect x="2" y="8" width="8" height="1" class="f"/>
+    <rect x="3" y="9" width="6" height="1" class="f"/>
+    
+    <!-- Legs -->
+    <rect x="3" y="10" width="2" height="1" class="f"/>
+    <rect x="7" y="10" width="2" height="1" class="f"/>
+    <rect x="3" y="11" width="2" height="1" class="f"/>
+    <rect x="7" y="11" width="2" height="1" class="f"/>
+    
+    <!-- Tail wagging up -->
+    <rect x="10" y="7" width="1" height="1" class="f"/>
+    <rect x="11" y="6" width="1" height="1" class="f"/>
+  </g>
+</svg>

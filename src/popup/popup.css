@@ -1,0 +1,120 @@
+/* Popup specific layout styles */
+body {
+  width: 360px;
+  height: 480px;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  background-color: var(--void);
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-4);
+  gap: var(--space-3);
+  position: relative;
+}
+
+.hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: var(--space-2);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.brand-title {
+  font-size: var(--text-md);
+  margin: 0;
+  letter-spacing: 0.08em;
+}
+
+.version {
+  font-size: 8px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.popup-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+  overflow-y: auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.stat-box {
+  padding: var(--space-2);
+  text-align: center;
+  background: var(--panel-raised);
+}
+
+.recent-pushes {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+}
+
+.pushes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  overflow-y: auto;
+  max-height: 140px;
+}
+
+.push-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2);
+  background: var(--void);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+}
+
+.push-item:hover {
+  border-color: var(--crimson);
+}
+
+.hover-crimson:hover {
+  color: var(--crimson);
+  text-shadow: var(--glow-crimson-soft);
+}
+
+.hud-footer {
+  border-top: 1px solid var(--panel-border);
+  padding-top: var(--space-2);
+  margin-top: auto;
+}
+
+.vault-icon {
+  font-size: var(--text-sm);
+}
+
+.margin-bottom-2 {
+  margin-bottom: var(--space-2);
+}
