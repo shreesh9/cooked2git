@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧩 Cooked2Git — LeetCode Auto-Sync
+# 🐈‍⬛ Cooked2Git — LeetCode Auto-Sync
 
 > **Zero-Server, Zero-Telemetry, Direct Browser-to-GitHub Solution Tracker**
 
