@@ -1,7 +1,7 @@
 {
   "name": "cooked2git",
   "version": "0.1.0",
-  "description": "Auto-sync your LeetCode submissions to GitHub. Zero servers, zero telemetry.",
+  "description": "Auto-sync your LeetCode & NeetCode submissions to GitHub. Zero servers, zero telemetry.",
   "private": true,
   "type": "module",
   "scripts": {
